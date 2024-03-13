@@ -45,12 +45,12 @@ A simple Cargo dependency would look like this :
 
 ```toml
 [dependencies]
-sqlx-rqlite = { git = "https://github.com/HaHa421/sqlx-rqlite" }
+sqlx-rqlite = { version = "0.1" }
 sqlx = {  version = "0.7" , default-features = false, features = ["macros", "runtime-tokio", "tls-none"] }
 tokio = { version = "1", features = [ "full" ] }
 ```
 
-Assuming rqlite node listens at "127.0.0.1:4001" , a simple app would proceed as follows:
+Assuming an rqlite node listens at "127.0.0.1:4001", a simple app would proceed as follows:
 
 ```rust
 use futures_util::StreamExt;
@@ -99,6 +99,9 @@ async fn main() -> Result<(), sqlx::Error> {
     Ok(())
 }
 ```
+<br />
+
+To get "datetime" supported, you need to enable the feature "chrono".
 
 ## License
 
