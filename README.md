@@ -30,7 +30,7 @@
   
   <!-- Version -->
   <a href="https://crates.io/crates/sqlx-rqlite">
-    <img src="https://img.shields.io/crates/v/sqlx-sqlite.svg?style=flat-square"
+    <img src="https://img.shields.io/crates/v/sqlx-rqlite.svg?style=flat-square"
     alt="Crates.io version" /></a>
   
 </div>
