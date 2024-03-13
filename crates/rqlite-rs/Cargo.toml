@@ -1,0 +1,30 @@
+[package]
+name = "rqlite"
+version = "0.1.0"
+edition = "2018"
+description = "An async implementation of a rqlite client"
+authors = ["zesty <zesty@mail.onion.bbox.wtf>"]
+readme = "README.md"
+license = "Apache-2.0"
+repository = "https://codeberg.org/zesty/rqlite-rs"
+homepage = "https://codeberg.org/zesty/rqlite-rs"
+documentation = "https://docs.rs/rqlite/"
+
+categories = ["async", "database"]
+keywords   = ["rqlite"]
+
+
+[dependencies]
+tokio = { version = "1", features = [ "full" ] }
+tokio-rustls = "0.25"
+hyper = { version = "0.14.28", features = [ "full" ] }
+bytes = "1.5"
+serde = { version = "1", features = [ "derive" ] }
+serde_json = "1" 
+base64 = "0.22"
+rustls = "0.22.2"
+webpki-roots = "0.26"
+chrono = { version = "0.4" , features = [ "serde" ] , optional = true }
+
+[features]
+chrono = [ "dep:chrono"]

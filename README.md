@@ -1,0 +1,88 @@
+<h1 align="center">SQLx rqlite</h1>
+<div align="center">
+ <strong>
+   The Rust SQL Toolkit rqlite driver
+ </strong>
+</div>
+<br />
+
+<div align="center">
+  <h4>
+    <a href="#install">
+      Install
+    </a>
+    <span> | </span>
+    <a href="#usage">
+      Usage
+    </a>
+    
+    
+  </h4>
+</div>
+
+<div align="center">
+  <normal>Sqlx driver for <a href="https://rqlite.io">rqlite</a></normal>
+</div>
+
+<br />
+
+## Install
+
+You need to have rqlite installed on your system.
+A simple Cargo dependency would look like this :
+
+```toml
+[dependencies]
+sqlx-rqlite = "*"
+
+```
+
+Assuming rqlite node listens at "127.0.0.1:4001" , a simple app would proceed as follows:
+
+```rust
+use futures_util::StreamExt;
+use sqlx::prelude::*;
+use sqlx_rqlite::RqlitePoolOptions;
+
+//#[async_std::main] // Requires the `attributes` feature of `async-std`
+#[tokio::main]
+// or #[actix_web::main]
+async fn main() -> Result<(), sqlx::Error> {
+  let pool = RqlitePoolOptions::new()
+        //.max_connections(5)
+        .connect("rqlite://localhost:4001")
+        .await?;
+  sqlx::query(
+        "CREATE TABLE IF NOT EXISTS _rqlite_test_user_ (
+        id INTEGER PRIMARY KEY,
+        name TEXT NOT NULL UNIQUE
+    )",
+    )
+    .execute(&pool)
+    .await?;
+    
+  
+    
+  let mut row = sqlx::query("SELECT * FROM user WHERE name = ?")
+        .bind("JohnDoe")
+        .fetch_optional(&pool)
+        .await?;
+
+    if row.is_none() {
+        sqlx::query("INSERT INTO user (name) VALUES (?);")
+            .bind("JohnDoe")
+            .execute(&pool)
+            .await?;
+        row = sqlx::query("SELECT * FROM user WHERE name = 'JohnDoe'")
+            .fetch_optional(&pool)
+            .await?;
+    }
+    assert!(row.is_some());
+    sqlx::query(
+        "DROP TABLE _rqlite_test_user_",
+    )
+    .execute(&pool)
+    .await?;
+    Ok(())
+}
+```
