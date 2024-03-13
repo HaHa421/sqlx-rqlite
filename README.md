@@ -15,7 +15,9 @@
     <a href="#usage">
       Usage
     </a>
-    
+    <a href="#security">
+      Security
+    </a>
     
   </h4>
 </div>
@@ -105,7 +107,9 @@ async fn main() -> Result<(), sqlx::Error> {
 To get "datetime" support, you need to enable the feature "chrono".
 
 <br />
-For a secured connection, use 
+## Security
+For a secured connection, use:
+
 ```rust
 let pool = RqlitePoolOptions::new()
         //.max_connections(5)
@@ -114,7 +118,8 @@ let pool = RqlitePoolOptions::new()
 ```
 
 In case you opt in for an insecure ssl connection 
-(which accepts invalid certificates), use 
+(which accepts invalid certificates), use:
+
 ```rust
 let pool = RqlitePoolOptions::new()
         //.max_connections(5)
