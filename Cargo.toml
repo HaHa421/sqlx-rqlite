@@ -6,7 +6,7 @@ homepage = "https://github.com/HaHa421/sqlx-rqlite"
 version = "0.1.2"
 edition = "2021"
 license = "Apache-2.0"
-authors = [ "ha421 <hha835773@gmail.com>" , "sqlx authors" ]
+authors = [ "ha421 <hha835773@gmail.com>" ]
 keywords = ["sqlx", "rqlite"]
 categories = ["database"]
 
