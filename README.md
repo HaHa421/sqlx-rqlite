@@ -29,12 +29,16 @@
 ## Install
 
 You need to have rqlite installed on your system.
+
+## Usage
+
 A simple Cargo dependency would look like this :
 
 ```toml
 [dependencies]
 sqlx-rqlite = "*"
-
+sqlx = {  version = "0.7" , default-features = false, features = ["macros", "runtime-tokio", "tls-none"] }
+tokio = { version = "1", features = [ "full" ] }
 ```
 
 Assuming rqlite node listens at "127.0.0.1:4001" , a simple app would proceed as follows:
@@ -86,3 +90,16 @@ async fn main() -> Result<(), sqlx::Error> {
     Ok(())
 }
 ```
+
+## License
+
+Licensed under
+
+-   Apache License, Version 2.0
+    ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+.
+
+## Contribution
+
+Unless you explicitly state otherwise, any Contribution intentionally submitted
+for inclusion in the work by you, as defined in the Apache-2.0 license, shall be licensed as above, without any additional terms or conditions.
