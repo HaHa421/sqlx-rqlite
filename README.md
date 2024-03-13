@@ -104,6 +104,26 @@ async fn main() -> Result<(), sqlx::Error> {
 
 To get "datetime" support, you need to enable the feature "chrono".
 
+<br />
+For a secured connection, use 
+```rust
+let pool = RqlitePoolOptions::new()
+        //.max_connections(5)
+        .connect("rqlite://localhost:4001&ssl=yes")
+        .await?;
+```
+
+In case you opt in for an insecure ssl connection 
+(which accepts invalid certificates), use 
+```rust
+let pool = RqlitePoolOptions::new()
+        //.max_connections(5)
+        .connect("rqlite://localhost:4001&ssl-insecure=yes")
+        .await?;
+```
+
+<br />
+
 ## License
 
 Licensed under
