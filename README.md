@@ -15,9 +15,11 @@
     <a href="#usage">
       Usage
     </a>
+    <span> | </span>
     <a href="#security">
       Security
     </a>
+    <span> | </span>
     <a href="#license">
       License
     </a>
