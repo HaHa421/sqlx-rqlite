@@ -1,7 +1,7 @@
 [package]
 name = "sqlx-rqlite"
 #documentation = "https://docs.rs/sqlx"
-description = "rqlite driver implementation for SQLx. Not for direct use; see the `sqlx` crate for details."
+description = "rqlite driver implementation for SQLx. intended for use with sqlx; see the `sqlx` crate for details."
 homepage = "https://github.com/HaHa421/sqlx-rqlite"
 version = "0.1.3"
 edition = "2021"
