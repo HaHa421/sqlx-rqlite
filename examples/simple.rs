@@ -12,7 +12,7 @@ async fn main() -> Result<(), sqlx::Error> {
     //  etc.
     let pool = RqlitePoolOptions::new()
         //.max_connections(5)
-        .connect("rqlite://192.168.1.14:4001")
+        .connect("rqlite://localhost:4001")
         .await?;
     println!("connected");
 
