@@ -1,11 +1,14 @@
 [package]
 name = "sqlx-rqlite"
-documentation = "https://docs.rs/sqlx"
+#documentation = "https://docs.rs/sqlx"
 description = "rqlite driver implementation for SQLx. Not for direct use; see the `sqlx` crate for details."
+homepage = "https://github.com/HaHa421/sqlx-rqlite"
 version = "0.1.0"
 edition = "2021"
 license = "Apache-2.0"
 authors = [ "hha835773@gmail.com" ]
+keywords = ["sqlx", "rqlite"]
+categories = ["database"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -50,6 +53,7 @@ urlencoding = "2.1.3"
 [dependencies.rqlite]
 default-features = false
 path = "crates/rqlite-rs"
+version = "0.1"
 
 [dependencies.sqlx-core]
 version = "0.7"
