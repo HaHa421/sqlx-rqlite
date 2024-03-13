@@ -123,7 +123,7 @@ let pool = RqlitePoolOptions::new()
         .await?;
 ```
 
-In case you opt in for an insecure ssl connection 
+⚠️ **DANGER** In case you opt in for an insecure ssl connection 
 (which accepts invalid certificates), use:
 
 ```rust
