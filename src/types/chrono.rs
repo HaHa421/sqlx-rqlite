@@ -1,3 +1,4 @@
+use crate::rqlite;
 use std::fmt::Display;
 
 use crate::value::ValueRef;

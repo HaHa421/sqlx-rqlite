@@ -22,7 +22,7 @@ default = [ ] # you need to explicitly specify the chrono feature when compiling
 #offline = ["sqlx-core/offline", "serde"]
 #migrate = ["sqlx-core/migrate"]
 
-chrono = ["dep:chrono" , "rqlite/chrono"]
+chrono = ["dep:chrono" , "rqlite-ha421/chrono"]
 #regexp = ["dep:regex"]
 
 [dependencies]
@@ -51,10 +51,10 @@ serde = { version = "1.0.145", features = ["derive"], optional = true }
 regex = { version = "1.5.5", optional = true }
 urlencoding = "2.1.3"
 
-[dependencies.rqlite]
+[dependencies.rqlite-ha421]
 default-features = false
 path = "crates/rqlite-rs"
-
+version = "0.1"
 
 [dependencies.sqlx-core]
 version = "0.7"

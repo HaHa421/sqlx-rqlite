@@ -1,3 +1,4 @@
+use crate::rqlite;
 use crate::{Rqlite, /*RqliteArgumentValue, */ RqliteTypeInfo, RqliteValueRef};
 use sqlx_core::decode::Decode;
 use sqlx_core::encode::{Encode, IsNull};

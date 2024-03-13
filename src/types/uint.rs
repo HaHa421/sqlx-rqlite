@@ -1,78 +1,79 @@
+use crate::rqlite;
 use crate::decode::Decode;
 use crate::encode::{Encode, IsNull};
 use crate::error::BoxDynError;
 use crate::type_info::DataType;
 use crate::types::Type;
-use crate::{Sqlite, SqliteArgumentValue, SqliteTypeInfo, SqliteValueRef};
+use crate::{Rqlite, /*RqliteArgumentValue,*/ RqliteTypeInfo, RqliteValueRef};
 
-impl Type<Sqlite> for u8 {
-    fn type_info() -> SqliteTypeInfo {
-        SqliteTypeInfo(DataType::Int)
+impl Type<Rqlite> for u8 {
+    fn type_info() -> RqliteTypeInfo {
+        RqliteTypeInfo(DataType::Int)
     }
 
-    fn compatible(ty: &SqliteTypeInfo) -> bool {
+    fn compatible(ty: &RqliteTypeInfo) -> bool {
         matches!(ty.0, DataType::Int | DataType::Int64)
     }
 }
 
-impl<'q> Encode<'q, Sqlite> for u8 {
-    fn encode_by_ref(&self, args: &mut Vec<SqliteArgumentValue<'q>>) -> IsNull {
-        args.push(SqliteArgumentValue::Int(*self as i32));
+impl<'q> Encode<'q, Rqlite> for u8 {
+    fn encode_by_ref(&self, args: &mut Vec<rqlite::Value>) -> IsNull {
+        args.push(rqlite::Value::Number((*self).into()));
 
         IsNull::No
     }
 }
 
-impl<'r> Decode<'r, Sqlite> for u8 {
-    fn decode(value: SqliteValueRef<'r>) -> Result<Self, BoxDynError> {
-        Ok(value.int().try_into()?)
+impl<'r> Decode<'r, Rqlite> for u8 {
+    fn decode(value: RqliteValueRef<'r>) -> Result<Self, BoxDynError> {
+        Ok(value.int()? as _)
     }
 }
 
-impl Type<Sqlite> for u16 {
-    fn type_info() -> SqliteTypeInfo {
-        SqliteTypeInfo(DataType::Int)
+impl Type<Rqlite> for u16 {
+    fn type_info() -> RqliteTypeInfo {
+        RqliteTypeInfo(DataType::Int)
     }
 
-    fn compatible(ty: &SqliteTypeInfo) -> bool {
+    fn compatible(ty: &RqliteTypeInfo) -> bool {
         matches!(ty.0, DataType::Int | DataType::Int64)
     }
 }
 
-impl<'q> Encode<'q, Sqlite> for u16 {
-    fn encode_by_ref(&self, args: &mut Vec<SqliteArgumentValue<'q>>) -> IsNull {
-        args.push(SqliteArgumentValue::Int(*self as i32));
+impl<'q> Encode<'q, Rqlite> for u16 {
+    fn encode_by_ref(&self, args: &mut Vec<rqlite::Value>) -> IsNull {
+        args.push(rqlite::Value::Number((*self).into()));
 
         IsNull::No
     }
 }
 
-impl<'r> Decode<'r, Sqlite> for u16 {
-    fn decode(value: SqliteValueRef<'r>) -> Result<Self, BoxDynError> {
-        Ok(value.int().try_into()?)
+impl<'r> Decode<'r, Rqlite> for u16 {
+    fn decode(value: RqliteValueRef<'r>) -> Result<Self, BoxDynError> {
+        Ok(value.int()? as _)
     }
 }
 
-impl Type<Sqlite> for u32 {
-    fn type_info() -> SqliteTypeInfo {
-        SqliteTypeInfo(DataType::Int64)
+impl Type<Rqlite> for u32 {
+    fn type_info() -> RqliteTypeInfo {
+        RqliteTypeInfo(DataType::Int64)
     }
 
-    fn compatible(ty: &SqliteTypeInfo) -> bool {
+    fn compatible(ty: &RqliteTypeInfo) -> bool {
         matches!(ty.0, DataType::Int | DataType::Int64)
     }
 }
 
-impl<'q> Encode<'q, Sqlite> for u32 {
-    fn encode_by_ref(&self, args: &mut Vec<SqliteArgumentValue<'q>>) -> IsNull {
-        args.push(SqliteArgumentValue::Int64(*self as i64));
+impl<'q> Encode<'q, Rqlite> for u32 {
+    fn encode_by_ref(&self, args: &mut Vec<rqlite::Value>) -> IsNull {
+        args.push(rqlite::Value::Number((*self).into()));
 
         IsNull::No
     }
 }
 
-impl<'r> Decode<'r, Sqlite> for u32 {
-    fn decode(value: SqliteValueRef<'r>) -> Result<Self, BoxDynError> {
-        Ok(value.int64().try_into()?)
+impl<'r> Decode<'r, Rqlite> for u32 {
+    fn decode(value: RqliteValueRef<'r>) -> Result<Self, BoxDynError> {
+        Ok(value.int64()? as _)
     }
 }

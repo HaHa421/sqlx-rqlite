@@ -1,3 +1,4 @@
+use crate::rqlite;
 use std::fmt::{self, Debug, Formatter};
 
 use futures_core::future::BoxFuture;

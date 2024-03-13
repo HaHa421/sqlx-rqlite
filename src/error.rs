@@ -1,3 +1,4 @@
+use crate::rqlite;
 use std::error::Error as StdError;
 use std::fmt::{self, Display, Formatter};
 use std::{borrow::Cow /*, str::from_utf8_unchecked*/};

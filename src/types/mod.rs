@@ -9,16 +9,16 @@ mod float;
 mod int;
 mod str;
 mod text;
-
+mod uint;
 /*
-mod int;
+
 #[cfg(feature = "json")]
 mod json;
 
-mod text;
+
 #[cfg(feature = "time")]
 mod time;
-mod uint;
+
 #[cfg(feature = "uuid")]
 mod uuid;
 */

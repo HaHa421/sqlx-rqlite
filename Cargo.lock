@@ -802,7 +802,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rqlite"
+name = "rqlite-ha421"
 version = "0.1.0"
 dependencies = [
  "base64",
@@ -1074,7 +1074,7 @@ dependencies = [
  "log",
  "percent-encoding",
  "regex",
- "rqlite",
+ "rqlite-ha421",
  "serde",
  "sqlx",
  "sqlx-core",

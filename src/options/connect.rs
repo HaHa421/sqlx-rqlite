@@ -1,3 +1,4 @@
+use crate::rqlite;
 use crate::connection::RqliteConnection;
 use crate::options::RqliteConnectOptions;
 

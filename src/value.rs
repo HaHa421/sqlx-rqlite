@@ -1,3 +1,4 @@
+use crate::rqlite;
 use std::borrow::Cow;
 //use std::ptr::NonNull;
 //use std::slice::from_raw_parts;

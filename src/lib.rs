@@ -1,6 +1,8 @@
 #[macro_use]
 extern crate sqlx_core;
 
+use rqlite_ha421 as rqlite;
+
 pub(crate) use sqlx_core::driver_prelude::*;
 
 pub mod error;
