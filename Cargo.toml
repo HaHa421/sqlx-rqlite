@@ -6,11 +6,12 @@ homepage = "https://github.com/HaHa421/sqlx-rqlite"
 version = "0.1.0"
 edition = "2021"
 license = "Apache-2.0"
-authors = [ "hha835773@gmail.com" ]
+authors = [ "ha421 <hha835773@gmail.com>" , "zesty <zesty@mail.onion.bbox.wtf>" ]
 keywords = ["sqlx", "rqlite"]
 categories = ["database"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[workspace]
+members = [ "crates/rqlite-rs" ]
 
 
 [features]
