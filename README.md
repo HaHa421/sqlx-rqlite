@@ -99,9 +99,10 @@ async fn main() -> Result<(), sqlx::Error> {
     Ok(())
 }
 ```
+
 <br />
 
-To get "datetime" supported, you need to enable the feature "chrono".
+To get "datetime" support, you need to enable the feature "chrono".
 
 ## License
 
