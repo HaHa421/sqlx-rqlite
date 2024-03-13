@@ -27,7 +27,7 @@
 </div>
 
 <div align="center">
-  <normal>Sqlx driver for <a href="https://rqlite.io">rqlite</a></normal>
+  <normal><a href="https://github.com/launchbadge/sqlx">Sqlx </a> driver for <a href="https://rqlite.io">rqlite</a></normal>
 </div>
 
 <br />
