@@ -803,7 +803,7 @@ dependencies = [
 
 [[package]]
 name = "rqlite-ha421"
-version = "0.1.0"
+version = "0.1.2"
 dependencies = [
  "base64",
  "bytes",
@@ -1061,7 +1061,7 @@ dependencies = [
 
 [[package]]
 name = "sqlx-rqlite"
-version = "0.1.0"
+version = "0.1.2"
 dependencies = [
  "atoi",
  "chrono",

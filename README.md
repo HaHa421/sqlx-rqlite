@@ -66,7 +66,7 @@ async fn main() -> Result<(), sqlx::Error> {
         .connect("rqlite://localhost:4001")
         .await?;
   sqlx::query(
-        "CREATE TABLE IF NOT EXISTS _rqlite_test_user_ (
+        "CREATE TABLE IF NOT EXISTS _sqlx_rqlite_test_user_ (
         id INTEGER PRIMARY KEY,
         name TEXT NOT NULL UNIQUE
     )",
@@ -76,23 +76,23 @@ async fn main() -> Result<(), sqlx::Error> {
     
   
     
-  let mut row = sqlx::query("SELECT * FROM user WHERE name = ?")
+  let mut row = sqlx::query("SELECT * FROM _sqlx_rqlite_test_user_  WHERE name = ?")
         .bind("JohnDoe")
         .fetch_optional(&pool)
         .await?;
 
     if row.is_none() {
-        sqlx::query("INSERT INTO user (name) VALUES (?);")
+        sqlx::query("INSERT INTO _sqlx_rqlite_test_user_  (name) VALUES (?);")
             .bind("JohnDoe")
             .execute(&pool)
             .await?;
-        row = sqlx::query("SELECT * FROM user WHERE name = 'JohnDoe'")
+        row = sqlx::query("SELECT * FROM _sqlx_rqlite_test_user_  WHERE name = 'JohnDoe'")
             .fetch_optional(&pool)
             .await?;
     }
     assert!(row.is_some());
     sqlx::query(
-        "DROP TABLE _rqlite_test_user_",
+        "DROP TABLE _sqlx_rqlite_test_user_",
     )
     .execute(&pool)
     .await?;

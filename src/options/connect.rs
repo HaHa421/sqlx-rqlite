@@ -50,6 +50,22 @@ impl ConnectOptions for RqliteConnectOptions {
             options = options.database(path);
         }
         */
+        for (key, value) in url.query_pairs().into_iter() {
+            match &*key {
+              "ssl"=> {
+                if value == "yes" || value == "1" {
+                  options.scheme=rqlite::Scheme::HTTPS;
+                }
+              }
+              "ssl-insecure"=> {
+                if value == "yes" || value == "1" {
+                  options.scheme=rqlite::Scheme::HTTPS;
+                  options.accept_invalid_cert=true;
+                }
+              }
+              _=>{}
+            }
+        }
         Ok(Self { inner: options })
     }
     fn to_url_lossy(&self) -> Url {

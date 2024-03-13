@@ -80,7 +80,7 @@ mod danger {
 
 /// Enum to specify connection scheme when creating a connections
 #[repr(u8)]
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub enum Scheme {
     #[default]
     HTTP,
