@@ -43,7 +43,9 @@
 
 ## Install
 
-You need to have rqlite installed on your system.
+You need to have access to an rqlite node.
+Instructions for installing rqlite are available at https://rqlite.io
+
 
 ## Usage
 
