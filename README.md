@@ -18,7 +18,9 @@
     <a href="#security">
       Security
     </a>
-    
+    <a href="#license">
+      License
+    </a>
   </h4>
 </div>
 
@@ -107,7 +109,9 @@ async fn main() -> Result<(), sqlx::Error> {
 To get "datetime" support, you need to enable the feature "chrono".
 
 <br />
+
 ## Security
+
 For a secured connection, use:
 
 ```rust
