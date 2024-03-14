@@ -6,7 +6,7 @@ description = "An async implementation of a rqlite client"
 authors = ["zesty <zesty@mail.onion.bbox.wtf>" , "ha421 <hha835773@gmail.com>"]
 readme = "README.md"
 license = "Apache-2.0"
-repository = "https://codeberg.org/zesty/rqlite-rs"
+repository = "https://github.com/HaHa421/sqlx-rqlite/crates/rqlite-rs"
 homepage = "https://codeberg.org/zesty/rqlite-rs"
 documentation = "https://docs.rs/rqlite/"
 
